@@ -6,8 +6,8 @@ def is_draw_ok(s):
 
 def part_1(games):
   count = 0
-  for i, line in enumerate(games):
-    sets = line.split(':')[1].split(';')
+  for i, game in enumerate(games):
+    sets = game.split(':')[1].split(';')
     if all([all([is_draw_ok(s.strip()) for s in set.split(',')]) for set in sets]):
       count += i+1
   return count
@@ -18,8 +18,8 @@ def get_counts(set):
 
 def part_2(games):
   power_sum = 0
-  for line in games:
-    sets = line.split(':')[1].split(';')
+  for game in games:
+    sets = game.split(':')[1].split(';')
     max_r, max_b, max_g = 0, 0, 0
     for set in sets:
       r, g, b = get_counts(set)
